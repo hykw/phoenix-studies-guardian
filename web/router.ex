@@ -34,6 +34,13 @@ defmodule GuardianStudy.Router do
 
 
     get "/", PageController, :index
+
+    get  "/register", RegisterController, :new
+    post "/register", RegisterController, :create
+
+    get    "/login",  LoginController, :new
+    post   "/login",  LoginController, :create
+    delete "/logout", LoginController, :delete
   end
 
   # Other scopes may use custom stacks.

@@ -52,6 +52,9 @@ defmodule GuardianStudy.Web do
       import GuardianStudy.Router.Helpers
       import GuardianStudy.ErrorHelpers
       import GuardianStudy.Gettext
+
+
+      import GuardianStudy.Login, only: [current_user: 1, logged_in?: 1]
     end
   end
 

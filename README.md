@@ -17,4 +17,17 @@ $ mix phoenix.gen.model User users email:string password:string
 $ mix ecto.migrate
 ```
 
+## アカウントまわりの機能を追加（登録・ログイン・ログアウトの実装）
+
+- router.ex
+- register
+- login
+- logout
+
+- --no-brunch を指定しているため、js を自分で生成・設置
+
+```bash
+cat deps/phoenix_html/priv/static/phoenix_html.js >> priv/static/js/app.js
+```
+
 
