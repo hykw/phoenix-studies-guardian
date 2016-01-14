@@ -39,7 +39,8 @@ defmodule GuardianStudy.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
-     {:logger_file_backend , "~> 0.0.5"}
+     {:logger_file_backend , "~> 0.0.5"},
+     {:guardian, "~> 0.9.0"}
 
    ]
   end

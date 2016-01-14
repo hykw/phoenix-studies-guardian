@@ -19,9 +19,6 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
 
 # Configure phoenix generators
 config :phoenix, :generators,
@@ -52,3 +49,22 @@ config :logger, :filelog_info_warn_error,
   format:   "$date $time\t[$level]\t$metadata\t$message\n",
   metadata: [:request_id]
 
+
+### Guardian
+config :guardian, Guardian,
+  allowed_algos: ["HS512"],
+  verify_module: Guardian.JWT,
+  issuer: "GuardianStudy",
+  ttl: { 30, :days },
+  verify_issuer: true,
+  secret_key: "11111111111",
+  serializer: GuardianStudy.GuardianSerializer
+
+
+
+
+
+
+# Import environment specific config. This must remain at the bottom
+# of this file so it overrides the configuration defined above.
+import_config "#{Mix.env}.exs"
