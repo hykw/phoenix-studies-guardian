@@ -52,3 +52,13 @@ $ mv errors.po priv/gettext/ja/LC_MESSAGES/
 $ mix deps.get
 ```
 
+## 秘密情報が書かれた config ファイルを読み込み
+
+- config/dev.exs
+
+```bash
+$ mkdir -p config/secrets
+$ echo "use Mix.Config" > config/secrets/dev.secrets.exs
+```
+
+

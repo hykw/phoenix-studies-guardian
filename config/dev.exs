@@ -40,3 +40,7 @@ config :guardian_study, GuardianStudy.Repo,
   database: "phoenix_studies_guardian",
   hostname: "localhost",
   pool_size: 10
+
+# 秘密情報が書かれたconfigを読み込み
+import_config "secrets/#{Mix.env}.secrets.exs"
+
