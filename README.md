@@ -1,5 +1,5 @@
 # phoenix-studies-guardian
-ueberauth/guardian のテスト実装
+ueberauth/guardian のテスト実装（プロジェクトを新規作成する時の手順も兼ねる）
 
 # 前準備
 ## MySQLの準備
@@ -26,3 +26,16 @@ $ mix phoenix.new guardian_study --no-brunch --database mysql
 ```bash
 $ mix test
 ```
+
+## エラーメッセージの日本語化
+
+- localeファイル(https://github.com/hykw/phoenix-locale_ja)をセット
+
+```bash
+$ mkdir -p priv/gettext/ja/LC_MESSAGES
+$ wget https://raw.githubusercontent.com/hykw/phoenix-locale_ja/master/ja/LC_MESSAGES/errors.po
+$ mv errors.po priv/gettext/ja/LC_MESSAGES/
+```
+
+- config/config.exs にロケールセット
+

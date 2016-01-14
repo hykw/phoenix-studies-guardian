@@ -27,3 +27,7 @@ import_config "#{Mix.env}.exs"
 config :phoenix, :generators,
   migration: true,
   binary_id: false
+
+# gettext
+config :guardian_study, GuardianStudy.Gettext, default_locale: "ja"
+
