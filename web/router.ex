@@ -11,10 +11,27 @@ defmodule GuardianStudy.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+
+    # Looks for a token in the Authorization header. Useful for apis. If one is not found, this does nothing.
+    plug Guardian.Plug.VerifyHeader
+
+    plug Guardian.Plug.LoadResource
   end
 
+
+  pipeline :browser_session do
+    # Looks for a token in the session. Useful for browser sessions. If one is not found, this does nothing.
+    plug Guardian.Plug.VerifySession
+
+    plug Guardian.Plug.LoadResource
+  end
+
+
+
+
   scope "/", GuardianStudy do
-    pipe_through :browser # Use the default browser stack
+    pipe_through [:browser, :browser_session] # Use the default browser stack
+
 
     get "/", PageController, :index
   end
