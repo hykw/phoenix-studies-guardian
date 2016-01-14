@@ -5,6 +5,16 @@ https://github.com/hykw/phoenix-skeleton 記載の初期設定は終わってい
 
 ## 初期設定
 
- - http://hassox.github.io/elixir/guardian/2015/06/19/guardian-getting-started.html
+- guardian の設定
+- plugとシリアライザを追加
+
+## User テーブルを追加
+
+※検証用なので、password カラムに生パスワードを保存する
+
+```bash
+$ mix phoenix.gen.model User users email:string password:string
+$ mix ecto.migrate
+```
 
 
