@@ -19,7 +19,9 @@ defmodule GuardianStudy.Mixfile do
   def application do
     [mod: {GuardianStudy, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :mariaex]]
+                    :phoenix_ecto, :mariaex,
+                    :logger_file_backend,
+                  ]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,7 +38,10 @@ defmodule GuardianStudy.Mixfile do
      {:phoenix_html, "~> 2.3"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:logger_file_backend , "~> 0.0.5"}
+
+   ]
   end
 
   # Aliases are shortcut or tasks specific to the current project.

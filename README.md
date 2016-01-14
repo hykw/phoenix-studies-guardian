@@ -39,3 +39,16 @@ $ mv errors.po priv/gettext/ja/LC_MESSAGES/
 
 - config/config.exs にロケールセット
 
+## ログのファイル出力
+
+- .gitignore
+- config/config.exs
+- config/dev.exs
+- mix.exs
+- lib/guardian_study/endpoint.ex
+- web/plugs/logger.ex
+
+```bash
+$ mix deps.get
+```
+
