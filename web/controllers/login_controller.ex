@@ -34,7 +34,7 @@ defmodule GuardianStudy.LoginController do
 
   def delete(conn, _) do
     conn
-    |> Guardian.Plug.sign_out(conn)
+    |> Guardian.Plug.sign_out()
     |> put_flash(:info, "ログアウトしました")
     |> redirect(to: page_path(conn, :index))
   end
