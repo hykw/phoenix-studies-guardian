@@ -11,10 +11,11 @@ defmodule GuardianStudy.LoginController do
     case GuardianStudy.Login.login(session_params, GuardianStudy.Repo) do
       {:ok, user} ->
         conn
-        |> Guardian.Plug.sign_in(user, :token, perms: %{default: Guardian.Permissions.max})
+        |> Guardian.Plug.sign_in(user, :token, key: :default, perms: %{default: [:read]})
         |> put_flash(:info, "ログインしました(id = " <> to_string(user.id) <> ")")
         |> redirect(to: page_path(conn, :index))
 
+        #        |> Guardian.Plug.sign_in(user, :token, perms: %{default: Guardian.Permissions.max})
         #|> Guardian.Plug.sign_in(user, :token, key: :default, perms: %{default: [:read, :write]})
         #        |> Guardian.Plug.sign_in(user, :token, key: :admin, perms: %{default: Guardian.Permissions.max})
 

@@ -6,7 +6,7 @@ defmodule GuardianStudy.UserController do
 
 
   plug EnsureAuthenticated, [handler: __MODULE__, key: :default, typ: "token"]
-    plug EnsurePermissions, [handler: __MODULE__, default: ~w(read)]  when action in [:index]
+  plug EnsurePermissions, [handler: __MODULE__, default: ~w(read)]  when action in [:index]
 
     use Guardian.Phoenix.Controller
 
@@ -14,9 +14,8 @@ defmodule GuardianStudy.UserController do
   def index(conn, params, current_user, claims) do
   #  def index(conn, _params) do
   #  IO.inspect Guardian.Permissions.to_value([:read], :default)
-  IO.inspect Guardian.Permissions.from_claims(claims)
-
-
+  #  IO.inspect Guardian.Permissions.from_claims(claims)
+  #  {:ok, claims} = Guardian.Plug.claims(conn, :default)
 
     render conn, "index.html"
   end

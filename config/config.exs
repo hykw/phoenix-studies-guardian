@@ -62,6 +62,7 @@ config :guardian, Guardian,
 
   permissions: %{
     default: [
+      :read,
       :read_profile,
       :write_profile,
       :read_token,
