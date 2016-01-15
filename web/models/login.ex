@@ -18,10 +18,12 @@ defmodule GuardianStudy.Login do
 
 
   def current_user(conn) do
-    # http://www.phoenixframework.org/docs/sessions
 
-    id = Plug.Conn.get_session(conn, :current_user)
-    if id, do: GuardianStudy.Repo.get(User, id)
+    case Guardian.Plug.current_resource(conn) do
+      %{id: id} -> GuardianStudy.Repo.get(User, id)
+      _ -> false
+    end
+
   end
 
 

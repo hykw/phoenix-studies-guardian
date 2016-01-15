@@ -50,18 +50,21 @@ cat deps/phoenix_html/priv/static/phoenix_html.js >> priv/static/js/app.js
 
 ### ページ
 - /users/
-  - user/admin権限でログインしてればOK
+  - ログインしてればOK
 - /users/read
-  - userのread, admin権限でOK
+  - userのread権限でOK
 - /users/write
-  - userのwrite, admin権限でOK
+  - userのwrite権限でOK
 
 - /admin/
-  - admin権限でログインしてればOK
+  - ログインしてればOK（実運用時は修正すること）
 - /admins/read
   - adminのadmin_read権限でOK
 - /admins/write
   - adminのadmin_write権限でOK
+
+
+※実運用時は admin_write だけの権限で運用することはない(readも付与されるはず）ので、/admin/ とかのチェックは admin_read 権限で引っ掛けられる。
 
 
 ### アカウントの権限

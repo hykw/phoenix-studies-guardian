@@ -10,8 +10,18 @@ defmodule GuardianStudy.LoginController do
   def create(conn, %{"login" => session_params}) do
     case GuardianStudy.Login.login(session_params, GuardianStudy.Repo) do
       {:ok, user} ->
+        set_params = case user.id do
+          1 -> %{admin: [:admin_read, :admin_write]}
+          2 -> %{admin: [:admin_write]}
+          3 -> %{admin: [:admin_read]}
+
+          4 -> %{user: [:read, :write]}
+          5 -> %{user: [:write]}
+          6 -> %{user: [:read]}
+        end
+
         conn
-        |> put_session(:current_user, user.id)
+        |> Guardian.Plug.sign_in(user, :token, perms: set_params)
         |> put_flash(:info, "ログインしました(id = " <> to_string(user.id) <> ")")
         |> redirect(to: page_path(conn, :index))
 
@@ -24,7 +34,7 @@ defmodule GuardianStudy.LoginController do
 
   def delete(conn, _) do
     conn
-    |> delete_session(:current_user)
+    |> Guardian.Plug.sign_out(conn)
     |> put_flash(:info, "ログアウトしました")
     |> redirect(to: page_path(conn, :index))
   end
