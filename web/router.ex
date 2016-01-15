@@ -41,6 +41,12 @@ defmodule GuardianStudy.Router do
     get    "/login",  LoginController, :new
     post   "/login",  LoginController, :create
     delete "/logout", LoginController, :delete
+
+
+    # 権限チェック用
+    get "/user", UserController, :index
+    get "/admin", AdminController, :index
+
   end
 
   # Other scopes may use custom stacks.

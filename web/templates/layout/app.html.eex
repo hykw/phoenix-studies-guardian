@@ -25,9 +25,12 @@
               <li><%= link "ログイン", to: login_path(@conn, :new) %></li>
             <% end %>
 
+              <li><%= link "ユーザ権限", to: user_path(@conn, :index) %></li>
+              <li><%= link "Admin権限", to: admin_path(@conn, :index) %></li>
+
           </ul>
         </nav>
-        <span class="logo"></span>
+        <a href="/"><span class="logo"></span></a>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
