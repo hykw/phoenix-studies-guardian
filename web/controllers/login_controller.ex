@@ -11,9 +11,13 @@ defmodule GuardianStudy.LoginController do
     case GuardianStudy.Login.login(session_params, GuardianStudy.Repo) do
       {:ok, user} ->
         conn
-        |> put_session(:current_user, user.id)
+        |> Guardian.Plug.sign_in(user, :token, perms: %{default: Guardian.Permissions.max})
         |> put_flash(:info, "ログインしました(id = " <> to_string(user.id) <> ")")
         |> redirect(to: page_path(conn, :index))
+
+        #|> Guardian.Plug.sign_in(user, :token, key: :default, perms: %{default: [:read, :write]})
+        #        |> Guardian.Plug.sign_in(user, :token, key: :admin, perms: %{default: Guardian.Permissions.max})
+
 
       :error ->
         conn
@@ -23,8 +27,7 @@ defmodule GuardianStudy.LoginController do
   end
 
   def delete(conn, _) do
-    conn
-    |> delete_session(:current_user)
+    Guardian.Plug.sign_out(conn)
     |> put_flash(:info, "ログアウトしました")
     |> redirect(to: page_path(conn, :index))
   end

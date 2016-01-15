@@ -25,8 +25,8 @@
               <li><%= link "ログイン", to: login_path(@conn, :new) %></li>
             <% end %>
 
-              <li><%= link "ユーザ権限", to: user_path(@conn, :index) %></li>
-              <li><%= link "Admin権限", to: admin_path(@conn, :index) %></li>
+              <li><%= link "【ユーザ権限】", to: user_path(@conn, :index) %></li>
+              <li><%= link "【Admin権限】", to: admin_path(@conn, :index) %></li>
 
           </ul>
         </nav>
