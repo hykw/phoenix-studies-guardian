@@ -5,32 +5,20 @@
 
 <div class="row marketing">
   <div class="col-lg-6">
-    <h4>Resources</h4>
+    <h4>users</h4>
     <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
+      <li><a href="/users/">/users/(user/admin 権限でログインしてればOK）</a></li>
+      <li><a href="/users/read">/users/read(userのread権限 or admin 権限が必要)</a></li>
+      <li><a href="/users/write">/users/write(userのwrite権限 or admin 権限が必要)</a></li>
       </li>
-      <li>
-        <a href="http://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
+
   </div>
 
   <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
+    <h4>admin</h4>
+      <li><a href="/admin/">/admin/(admin 権限でログインしてればOK）</a></li>
+      <li><a href="/admin/read">/admin/read(admin 権限のreadが必要)</a></li>
+      <li><a href="/admin/write">/admin/write(admin権限のwriteが必要)</a></li>
     </ul>
   </div>
 </div>

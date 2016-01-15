@@ -58,10 +58,18 @@ config :guardian, Guardian,
   ttl: { 30, :days },
   verify_issuer: true,
   secret_key: "11111111111",
-  serializer: GuardianStudy.GuardianSerializer
+  serializer: GuardianStudy.GuardianSerializer,
 
-
-
+  permissions: %{
+    user: [
+      :read,
+      :write,
+    ],
+    admin: [
+      :admin_read,
+      :admin_write,
+    ]
+  }
 
 
 

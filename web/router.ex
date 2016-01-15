@@ -41,7 +41,28 @@ defmodule GuardianStudy.Router do
     get    "/login",  LoginController, :new
     post   "/login",  LoginController, :create
     delete "/logout", LoginController, :delete
+
+
   end
+
+  scope "/users", GuardianStudy do
+    pipe_through [:browser, :browser_session]
+
+    get "/", UserController, :index
+    get "/read", UserController, :read
+    get "/write", UserController, :write
+  end
+
+  scope "/admin", GuardianStudy do
+    pipe_through [:browser, :browser_session]
+
+    get "/", AdminController, :index
+    get "/read", AdminController, :read
+    get "/write", AdminController, :write
+  end
+
+
+
 
   # Other scopes may use custom stacks.
   # scope "/api", GuardianStudy do
