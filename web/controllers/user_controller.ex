@@ -6,7 +6,7 @@ defmodule GuardianStudy.UserController do
 
 
   plug EnsureAuthenticated, [handler: __MODULE__, key: :default, typ: "token"]
-  plug EnsurePermissions, [handler: __MODULE__, default: ~w(read)]  when action in [:index]
+  plug EnsurePermissions, [handler: __MODULE__, default: ~w(read_profile)]  when action in [:index]
 
     use Guardian.Phoenix.Controller
 
