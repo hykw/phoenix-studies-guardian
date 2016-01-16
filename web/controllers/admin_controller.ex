@@ -1,10 +1,7 @@
 defmodule GuardianStudy.AdminController do
-  use GuardianStudy.Web, :controller
+  use GuardianStudy.Web, :admin_controller
 
-  alias Guardian.Plug.EnsureAuthenticated
-  alias Guardian.Plug.EnsurePermissions
-
-  plug EnsureAuthenticated, [handler: GuardianStudy.GuardianAdminAuthenticateHandler] when action in [:index]
+  #  plug EnsureAuthenticated, [handler: GuardianStudy.GuardianAdminAuthenticateHandler] when action in [:index]
   plug EnsurePermissions, [handler: GuardianStudy.GuardianPermisionHandler, admin: ~w(admin_read)]  when action in [:read]
   plug EnsurePermissions, [handler: GuardianStudy.GuardianPermisionHandler, admin: ~w(admin_write)]  when action in [:write]
 

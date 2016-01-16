@@ -39,6 +39,25 @@ defmodule GuardianStudy.Web do
     end
   end
 
+  def admin_controller do
+    quote do
+      use Phoenix.Controller
+
+      alias GuardianStudy.Repo
+      import Ecto
+      import Ecto.Query, only: [from: 1, from: 2]
+
+      import GuardianStudy.Router.Helpers
+      import GuardianStudy.Gettext
+
+      alias Guardian.Plug.EnsureAuthenticated
+      alias Guardian.Plug.EnsurePermissions
+      plug Guardian.Plug.EnsureAuthenticated, [handler: GuardianStudy.GuardianAdminAuthenticateHandler]
+    end
+  end
+
+
+
   def view do
     quote do
       use Phoenix.View, root: "web/templates"
