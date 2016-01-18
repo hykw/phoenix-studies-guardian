@@ -35,7 +35,8 @@ defmodule GuardianStudy.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_guardian_study_key",
-    signing_salt: "+HRQRlaZ"
+    signing_salt: "+HRQRlaZ",
+    max_age: 86400
 
   plug GuardianStudy.Router
 end
