@@ -40,10 +40,12 @@ defmodule GuardianStudy.Mixfile do
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
      {:logger_file_backend , "~> 0.0.5"},
-     {:guardian, "~> 0.9.0"}
+     {:guardian, "~> 0.9.0"},
+     {:guardian_db, "0.4.0"}
 
    ]
   end
+  #     {:postgrex, ">= 0.0.0", override: true}
 
   # Aliases are shortcut or tasks specific to the current project.
   # For example, to create, migrate and run the seeds file at once:

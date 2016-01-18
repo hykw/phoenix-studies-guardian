@@ -59,6 +59,7 @@ config :guardian, Guardian,
   verify_issuer: true,
   secret_key: "11111111111",
   serializer: GuardianStudy.GuardianSerializer,
+  hooks: GuardianDb,
 
   permissions: %{
     user: [
@@ -70,6 +71,11 @@ config :guardian, Guardian,
       :admin_write,
     ]
   }
+
+# GuardianDB
+config :guardian_db, GuardianDb,
+repo: GuardianStudy.Repo
+
 
 
 

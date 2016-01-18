@@ -78,3 +78,24 @@ cat deps/phoenix_html/priv/static/phoenix_html.js >> priv/static/js/app.js
 - ID=5: user(write)
 - ID=6: user(read)
 
+
+## 認証周りを GuardianDB に変更
+
+### 初期設定
+
+- config/config.exs で、guardian_db への hook を追加
+  - guardian_db が compile 時に確認しているので、設定なしで `mix deps.compile` するとコケル
+
+- mix.exs で guardian_db を追加
+  - guardian_db が postgrex に依存してるので、未使用でも postgrex が勝手に入る
+
+### GuardianDB 用のテーブルを準備
+
+- model を用意
+  - web/models/guardian_token.ex
+
+- migration ファイルを直接作成
+  - `$ mix ecto.gen.migration guardian_db_guardian_token`
+  - priv/repo/migrations/20160118070916_guardian_db_guardian_token.exs
+
+- `$ mix ecto.migrate`
