@@ -8,7 +8,7 @@ use Mix.Config
 # with brunch.io to recompile .js and .css sources.
 config :guardian_study, GuardianStudy.Endpoint,
   http: [port: 4000],
-  debug_errors: true,
+  debug_errors: false,
   code_reloader: true,
   check_origin: false,
   watchers: []
@@ -25,7 +25,7 @@ config :guardian_study, GuardianStudy.Endpoint,
   ]
 
 # Do not include metadata nor timestamps in development logs
-config :logger, :console, format: "[$level] $message\n", level: :debug
+#config :logger, :console, format: "[$level] $message\n", level: :debug
 
 # Set a higher stacktrace during development.
 # Do not configure such in production as keeping
